@@ -1,5 +1,5 @@
 
-import { getCSS } from "./common.js"
+import { getCSS, tickConfig} from "./common.js"
 
 async function QuantidadeUsuarios() {
     const url = 'https://raw.githubusercontent.com/guilhermeonrails/api/main/numero-usuarios.json'
@@ -32,9 +32,7 @@ async function QuantidadeUsuarios() {
         }
        },
        xaxis: {
-        tickfont: {
-
-        },
+        tickfont: tickConfig,
         title: {
             text: 'nome das redes sociais',
             font: {
@@ -43,17 +41,13 @@ async function QuantidadeUsuarios() {
         }
        },
        yaxis: {
+        tickfont: tickConfig,
         text: 'bilhões de usuários ativos',
         font: {
             color: getCSS('--secondary-color')
        }
-    },
+    }
 
-    const grafico = document.createElement('div'),
-    grafico.className = 'grafico',
-    document.getElementById('graficos-container').appendChild(grafico),
-
-    Plotly.newPlot(grafico, data, layout)
 }
 
 QuantidadeUsuarios()
